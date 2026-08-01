@@ -1,254 +1,832 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — kaky.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f0e9">
+  <meta name="description" content="Kaky Terms of Service — the terms for using Kaky and subscribing to Kaky Pro.">
+  <title>Terms of Service — Kaky</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
 
-  :root {
-    --bg: #0C0B09;
-    --card: #181512;
-    --elevated: #252118;
-    --orange: #FF6B35;
-    --warm-white: #F0EDE8;
-    --mid: #6B635C;
-    --dim: #2E2A26;
-    --border: rgba(240,237,232,0.07);
-  }
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e9;
+      --paper-deep: #ece5dc;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-solid: #fffdf9;
+      --ink: #171411;
+      --ink-soft: #655e57;
+      --ink-faint: #91877e;
+      --orange: #ff6334;
+      --orange-deep: #d93b12;
+      --orange-soft: #fff0e9;
+      --line: rgba(39, 31, 25, 0.10);
+      --shadow: 0 22px 70px rgba(73, 49, 32, 0.09);
+      --radius: 30px;
+      --reading-progress: 0;
+    }
 
-  html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--bg);
-    color: var(--warm-white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.95), transparent 31rem),
+        linear-gradient(145deg, var(--paper), #f8f5f0 48%, var(--paper-deep));
+      color: var(--ink);
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(255,107,53,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(255,107,53,0.03) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-  }
+    a { color: inherit; }
 
-  .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
-  header { padding: 56px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-  .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; text-decoration: none; }
-  .logo-icon { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
-  .logo-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .logo-name { font-size: 18px; font-weight: 600; color: var(--warm-white); letter-spacing: -0.01em; }
-  .page-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
-  h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 300; letter-spacing: -0.02em; color: var(--warm-white); line-height: 1.2; margin-bottom: 16px; }
-  h1 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--orange); font-weight: 400; }
-  .meta { font-size: 13px; color: var(--mid); font-weight: 400; }
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-  .toc { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-bottom: 48px; }
-  .toc-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 16px; }
-  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
-  @media (max-width: 480px) { .toc-list { grid-template-columns: 1fr; } }
-  .toc-list a { font-size: 13px; color: var(--mid); text-decoration: none; font-weight: 400; transition: color 0.15s; display: flex; align-items: center; gap: 8px; }
-  .toc-list a:hover { color: var(--orange); }
-  .toc-list a::before { content: attr(data-num); font-size: 10px; color: var(--dim); font-weight: 500; min-width: 16px; }
+    .skip-link:focus { transform: translateY(0); }
 
-  .section { margin-bottom: 40px; scroll-margin-top: 24px; }
-  .section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
-  .section-num { font-size: 11px; font-weight: 500; color: var(--orange); letter-spacing: 0.05em; flex-shrink: 0; padding-top: 2px; }
-  h2 { font-size: 16px; font-weight: 600; color: var(--warm-white); letter-spacing: -0.01em; }
-  p { font-size: 14px; color: rgba(240,237,232,0.7); margin-bottom: 12px; font-weight: 300; }
-  p:last-child { margin-bottom: 0; }
-  ul { list-style: none; margin: 8px 0 12px; }
-  ul li { font-size: 14px; color: rgba(240,237,232,0.7); font-weight: 300; padding: 5px 0 5px 20px; position: relative; }
-  ul li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); opacity: 0.5; }
+    .reading-progress {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 90;
+      height: 4px;
+      transform: scaleX(var(--reading-progress));
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--orange), #ff9d58);
+      box-shadow: 0 1px 16px rgba(255, 99, 52, 0.5);
+    }
 
-  .callout { background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.18); border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
-  .callout p { color: rgba(240,237,232,0.8); margin: 0; font-size: 13.5px; }
-  .callout strong { color: var(--warm-white); font-weight: 600; }
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-  .callout.warn { background: rgba(255,77,77,0.06); border-color: rgba(255,77,77,0.22); }
-  .callout.warn strong { color: #FF8585; }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(6px);
+      will-change: transform;
+    }
 
-  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+    .orb-one {
+      top: 4vh;
+      right: -11rem;
+      width: 31rem;
+      height: 31rem;
+      background: radial-gradient(circle at 42% 42%, rgba(255, 123, 68, 0.20), rgba(255, 99, 52, 0.03) 64%, transparent 72%);
+    }
 
-  .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-  .contact-card h2 { margin-bottom: 12px; }
-  .contact-card p { margin-bottom: 6px; }
-  .contact-card a { color: var(--orange); text-decoration: none; font-weight: 400; }
-  .contact-card a:hover { text-decoration: underline; }
+    .orb-two {
+      top: 58vh;
+      left: -15rem;
+      width: 34rem;
+      height: 34rem;
+      background: radial-gradient(circle, rgba(255, 191, 146, 0.22), transparent 68%);
+    }
 
-  a { color: var(--orange); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+    .topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  footer p { font-size: 12px; color: var(--mid); margin: 0; }
-  footer a { color: var(--mid); text-decoration: none; transition: color 0.15s; }
-  footer a:hover { color: var(--orange); }
-</style>
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      color: var(--ink);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      text-decoration: none;
+    }
+
+    .brand-dot { color: var(--orange); }
+
+    .document-switcher {
+      display: inline-flex;
+      gap: 5px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 10px 32px rgba(72, 50, 34, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .document-switcher a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .document-switcher a[aria-current="page"] { background: var(--ink); color: white; }
+
+    .hero {
+      display: grid;
+      width: min(1180px, calc(100% - 40px));
+      min-height: min(760px, 82svh);
+      margin: 0 auto;
+      padding: clamp(64px, 11vh, 126px) 0 88px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.56fr);
+      gap: clamp(48px, 8vw, 112px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 22px;
+      color: var(--orange-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 7px rgba(255, 99, 52, 0.10);
+      content: "";
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(56px, 8.1vw, 108px);
+      font-weight: 800;
+      letter-spacing: -0.075em;
+      line-height: 0.88;
+    }
+
+    h1 em {
+      display: block;
+      color: var(--orange);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-deck {
+      max-width: 680px;
+      margin: 30px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(255, 107, 53, 0.35), transparent 44%),
+        linear-gradient(145deg, #241b16, #120f0d 72%);
+      box-shadow: 0 30px 80px rgba(32, 21, 15, 0.25);
+      color: white;
+    }
+
+    .hero-card::after {
+      position: absolute;
+      inset: auto -30% -55% 20%;
+      height: 170px;
+      transform: rotate(-8deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+      content: "";
+      animation: glint 8s ease-in-out infinite;
+    }
+
+    @keyframes glint {
+      0%, 72%, 100% { transform: translateX(-80%) rotate(-8deg); opacity: 0; }
+      80% { opacity: 0.8; }
+      94% { transform: translateX(150%) rotate(-8deg); opacity: 0; }
+    }
+
+    .hero-card-label {
+      margin: 0 0 34px;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 26px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-list li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .trust-list li::before {
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      margin-top: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 5px rgba(255, 99, 52, 0.13);
+      content: "";
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .hero-meta span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .legal-layout {
+      display: grid;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 38px 0 120px;
+      grid-template-columns: 235px minmax(0, 1fr);
+      gap: clamp(38px, 6vw, 82px);
+      align-items: start;
+    }
+
+    .chapter-nav {
+      position: sticky;
+      top: 34px;
+      max-height: calc(100vh - 68px);
+      overflow-y: auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.63);
+      box-shadow: 0 18px 60px rgba(72, 50, 34, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .chapter-label {
+      margin: 2px 8px 12px;
+      color: var(--ink-faint);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chapter-nav a {
+      display: grid;
+      padding: 9px 10px;
+      border-radius: 12px;
+      color: var(--ink-faint);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.25;
+      text-decoration: none;
+      grid-template-columns: 25px 1fr;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .chapter-nav a:hover { color: var(--ink); transform: translateX(2px); }
+    .chapter-nav a[aria-current="true"] { background: var(--orange-soft); color: var(--orange-deep); }
+    .chapter-nav .num { font-size: 10px; font-weight: 800; opacity: 0.65; }
+    .content { min-width: 0; }
+
+    .plain-language {
+      margin-bottom: 20px;
+      padding: clamp(28px, 5vw, 46px);
+      border: 1px solid rgba(255, 99, 52, 0.18);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255, 245, 239, 0.94), rgba(255, 255, 255, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .plain-language .kicker,
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--orange-deep);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .plain-language h2 {
+      max-width: 650px;
+      margin: 0 0 17px;
+      font-size: clamp(31px, 5vw, 52px);
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    .plain-language p { max-width: 690px; margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+    .policy-section {
+      position: relative;
+      margin-bottom: 20px;
+      padding: clamp(27px, 5vw, 46px);
+      scroll-margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 16px 55px rgba(72, 50, 34, 0.055);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .js .reveal {
+      transform: translateY(26px) scale(0.992);
+      opacity: 0;
+      transition: transform 720ms cubic-bezier(0.2, 0.72, 0.2, 1), opacity 600ms ease;
+    }
+
+    .js .reveal.is-visible { transform: none; opacity: 1; }
+
+    .section-head {
+      display: grid;
+      margin-bottom: 21px;
+      grid-template-columns: 46px 1fr;
+      gap: 15px;
+      align-items: start;
+    }
+
+    .section-number {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--ink);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .policy-section h2 {
+      margin: 1px 0 0;
+      font-size: clamp(24px, 3.7vw, 36px);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
+
+    .policy-section h3 { margin: 27px 0 8px; font-size: 16px; letter-spacing: -0.02em; }
+    .policy-section p { margin: 0 0 14px; color: var(--ink-soft); font-size: 15px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    .policy-section ul {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .policy-section li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+
+    .policy-section li::before {
+      position: absolute;
+      top: 0.72em;
+      left: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      content: "";
+    }
+
+    .policy-section strong { color: var(--ink); }
+
+    .policy-section a {
+      color: var(--orange-deep);
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .callout {
+      margin: 22px 0;
+      padding: 19px 21px;
+      border: 1px solid rgba(255, 99, 52, 0.19);
+      border-radius: 18px;
+      background: var(--orange-soft);
+    }
+
+    .callout p { color: #684231; font-size: 14px; }
+
+    .terms-grid {
+      display: grid;
+      gap: 11px;
+      margin: 20px 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .term-card {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card-solid);
+    }
+
+    .term-card span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--orange-deep);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .term-card strong { display: block; font-size: 15px; line-height: 1.35; }
+
+    .contact-card {
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(255, 99, 52, 0.32), transparent 42%),
+        var(--ink);
+      color: white;
+    }
+
+    .contact-card .section-number { background: var(--orange); }
+    .contact-card h2, .contact-card strong { color: white; }
+    .contact-card p { color: rgba(255, 255, 255, 0.68); }
+    .contact-card a { color: #ff9c72; }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 5px 0;
+      color: var(--ink-faint);
+      font-size: 12px;
+    }
+
+    footer p { margin: 0; }
+    footer a { font-weight: 700; text-decoration: none; }
+
+    :focus-visible { outline: 3px solid rgba(255, 99, 52, 0.45); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .hero { min-height: auto; padding-top: 76px; grid-template-columns: 1fr; gap: 48px; }
+      .hero-card { max-width: 570px; }
+      .legal-layout { display: block; padding-top: 12px; }
+      .chapter-nav {
+        top: 10px;
+        z-index: 30;
+        display: flex;
+        max-height: none;
+        margin-bottom: 18px;
+        overflow-x: auto;
+        padding: 8px;
+        border-radius: 18px;
+        scrollbar-width: none;
+      }
+      .chapter-nav::-webkit-scrollbar { display: none; }
+      .chapter-label { display: none; }
+      .chapter-nav a { flex: 0 0 auto; display: block; padding: 9px 12px; }
+      .chapter-nav a .num { margin-right: 5px; }
+    }
+
+    @media (max-width: 620px) {
+      .topbar, .hero, .legal-layout { width: min(100% - 26px, 1180px); }
+      .topbar { padding-top: max(20px, env(safe-area-inset-top)); }
+      .document-switcher a { padding-inline: 10px; }
+      .hero { padding-top: 58px; padding-bottom: 66px; }
+      h1 { font-size: clamp(51px, 16vw, 76px); }
+      .hero-deck { margin-top: 22px; font-size: 16px; }
+      .hero-card { padding: 24px; border-radius: 27px; }
+      .hero-meta { gap: 6px; }
+      .hero-meta span { font-size: 10px; }
+      .plain-language, .policy-section { border-radius: 23px; }
+      .section-head { grid-template-columns: 40px 1fr; gap: 12px; }
+      .section-number { width: 40px; height: 40px; border-radius: 13px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      footer { display: grid; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      .js .reveal { transform: none; opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <a href="/" class="logo">
-      <div class="logo-icon">
-        <img src="data:image/png;base64,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" alt="Kaky logo">
-      </div>
-      <span class="logo-name">kaky.</span>
-    </a>
-    <div class="page-label">Legal</div>
-    <h1>Terms of <em>Service.</em></h1>
-    <p class="meta">Last updated: May 20, 2026 · Effective: May 20, 2026</p>
+  <a class="skip-link" href="#terms">Skip to Terms of Service</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Kaky home">kaky<span class="brand-dot">.</span></a>
+    <nav class="document-switcher" aria-label="Legal documents">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html" aria-current="page">Terms</a>
+    </nav>
   </header>
 
-  <div class="toc">
-    <div class="toc-title">Contents</div>
-    <ul class="toc-list">
-      <li><a href="#accept" data-num="01">Acceptance</a></li>
-      <li><a href="#service" data-num="02">The service</a></li>
-      <li><a href="#ai" data-num="03">AI features</a></li>
-      <li><a href="#medical" data-num="04">Not medical advice</a></li>
-      <li><a href="#account" data-num="05">Your account</a></li>
-      <li><a href="#use" data-num="06">Acceptable use</a></li>
-      <li><a href="#ip" data-num="07">Ownership</a></li>
-      <li><a href="#third" data-num="08">Third parties</a></li>
-      <li><a href="#termination" data-num="09">Termination</a></li>
-      <li><a href="#disclaimer" data-num="10">Disclaimer</a></li>
-      <li><a href="#liability" data-num="11">Liability</a></li>
-      <li><a href="#changes" data-num="12">Changes</a></li>
-      <li><a href="#law" data-num="13">Governing law</a></li>
-      <li><a href="#contact" data-num="14">Contact</a></li>
-    </ul>
-  </div>
-
-  <div class="section" id="accept">
-    <div class="section-header"><span class="section-num">01</span><h2>Acceptance of these terms</h2></div>
-    <p>By downloading, installing, or using the Kaky mobile application ("the app"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the app.</p>
-    <p>These Terms form a binding agreement between you and Mira Acaya, the developer of Kaky ("we", "us"). You must be at least 13 years old to use the app.</p>
-  </div>
-
-  <div class="section" id="service">
-    <div class="section-header"><span class="section-num">02</span><h2>What Kaky does</h2></div>
-    <p>Kaky is a voice-first nutrition tracking app. It allows you to:</p>
-    <ul>
-      <li>Describe meals using your voice or by typing</li>
-      <li>Receive an AI-generated estimate of each food's calories and macronutrients</li>
-      <li>Log meals and track daily totals against personal goals</li>
-      <li>Sync your data across devices when signed in</li>
-    </ul>
-    <p>The app is provided free of charge. We reserve the right to introduce paid features in future versions; you will be notified before any payment is required.</p>
-  </div>
-
-  <div class="section" id="ai">
-    <div class="section-header"><span class="section-num">03</span><h2>AI features and accuracy</h2></div>
-    <p>Kaky uses a third-party AI service (OpenRouter routing requests to Google's Gemini AI model) to identify foods from your descriptions and estimate their nutritional content. By using these features you acknowledge:</p>
-    <ul>
-      <li>AI estimates are not exact. Calorie and macro values are approximations based on typical food data and may vary from the actual values of what you eat.</li>
-      <li>The AI may misinterpret ambiguous descriptions. You are responsible for reviewing and correcting results before saving.</li>
-      <li>Network conditions may affect AI response time or availability.</li>
-      <li>You must grant explicit consent before any data is shared with the AI service. You can revoke consent at any time from Settings.</li>
-    </ul>
-    <div class="callout">
-      <p><strong>Tip:</strong> When portion size matters, use the in-app portion controls (½×, 1×, 2×) to refine the estimate. The more specific your description, the more accurate the result.</p>
+  <section class="hero" aria-labelledby="page-title">
+    <div>
+      <p class="eyebrow">Straightforward by design</p>
+      <h1 id="page-title">The terms.<em>No fog.</em></h1>
+      <p class="hero-deck">The rules that protect your experience, your subscription, and the service Kaky is building around you.</p>
+      <div class="hero-meta" aria-label="Document details">
+        <span>Effective August 1, 2026</span>
+        <span>14 short chapters</span>
+        <span>About 8 minutes</span>
+      </div>
     </div>
+
+    <aside class="hero-card" aria-label="Subscription essentials">
+      <p class="hero-card-label">Before you subscribe</p>
+      <strong>Clear price.<br>Apple controls billing.</strong>
+      <ul class="trust-list">
+        <li>Your final price and trial eligibility appear before confirmation.</li>
+        <li>You manage renewal or cancellation through Apple.</li>
+        <li>Deleting Kaky does not cancel an Apple subscription.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <div class="legal-layout" id="terms">
+    <nav class="chapter-nav" aria-label="Terms of Service chapters">
+      <p class="chapter-label">Jump to a chapter</p>
+      <a href="#acceptance"><span class="num">01</span><span>Acceptance</span></a>
+      <a href="#license"><span class="num">02</span><span>Apple EULA</span></a>
+      <a href="#service"><span class="num">03</span><span>The service</span></a>
+      <a href="#ai"><span class="num">04</span><span>AI features</span></a>
+      <a href="#medical"><span class="num">05</span><span>Not medical advice</span></a>
+      <a href="#accounts"><span class="num">06</span><span>Accounts</span></a>
+      <a href="#subscriptions"><span class="num">07</span><span>Kaky Pro</span></a>
+      <a href="#conduct"><span class="num">08</span><span>Acceptable use</span></a>
+      <a href="#ownership"><span class="num">09</span><span>Ownership</span></a>
+      <a href="#providers"><span class="num">10</span><span>Third parties</span></a>
+      <a href="#termination"><span class="num">11</span><span>Termination</span></a>
+      <a href="#disclaimers"><span class="num">12</span><span>Disclaimers</span></a>
+      <a href="#changes"><span class="num">13</span><span>Changes and law</span></a>
+      <a href="#contact"><span class="num">14</span><span>Contact</span></a>
+    </nav>
+
+    <main class="content">
+      <section class="plain-language reveal" aria-labelledby="short-version">
+        <p class="kicker">The 20-second version</p>
+        <h2 id="short-version">Use Kaky honestly, review nutrition estimates, and manage subscriptions through Apple.</h2>
+        <p>Kaky helps you track food and progress, but it is not medical advice. Kaky Pro renews automatically under the terms shown before purchase. These service terms supplement Apple’s Standard EULA.</p>
+      </section>
+
+      <section class="policy-section reveal" id="acceptance">
+        <div class="section-head"><span class="section-number">01</span><div><p class="section-kicker">Our agreement</p><h2>Acceptance of these terms</h2></div></div>
+        <p>These Terms of Service (“Terms”) are an agreement between you and Mira Acaya, the developer of Kaky (“Kaky,” “we,” or “us”). By downloading, accessing, purchasing through, or using Kaky, you agree to these Terms and our <a href="/privacy.html">Privacy Policy</a>. If you do not agree, do not use the service.</p>
+        <p>You must be at least 13 years old to use Kaky. If local law requires a higher minimum age or parental authorization, that requirement applies.</p>
+      </section>
+
+      <section class="policy-section reveal" id="license">
+        <div class="section-head"><span class="section-number">02</span><div><p class="section-kicker">The App Store license</p><h2>Apple’s Standard EULA</h2></div></div>
+        <p>Kaky is distributed through Apple’s App Store and is licensed—not sold—to you. Apple’s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Standard Licensed Application End User License Agreement</a> governs your license to the application unless a valid custom EULA is provided in App Store Connect.</p>
+        <div class="callout"><p><strong>How the documents work together:</strong> Apple’s Standard EULA governs the app license. These Terms govern Kaky’s accounts, AI processing, nutrition service, subscriptions, and related features.</p></div>
+      </section>
+
+      <section class="policy-section reveal" id="service">
+        <div class="section-head"><span class="section-number">03</span><div><p class="section-kicker">What Kaky provides</p><h2>The service</h2></div></div>
+        <p>Kaky is a voice-first nutrition tracker that can help you:</p>
+        <ul>
+          <li>Describe meals by voice or manual text.</li>
+          <li>Receive estimated foods, servings, calories, macronutrients, and other nutrition information.</li>
+          <li>Save meals and compare daily totals with personalized targets.</li>
+          <li>Track water, weight check-ins, streaks, and progress patterns.</li>
+          <li>Sync supported information across devices when signed in.</li>
+        </ul>
+        <p>Features may change as Kaky improves. We may add, remove, limit, or redesign functionality, provided that we comply with obligations that apply to active paid subscriptions.</p>
+      </section>
+
+      <section class="policy-section reveal" id="ai">
+        <div class="section-head"><span class="section-number">04</span><div><p class="section-kicker">Helpful, never infallible</p><h2>Voice and AI features</h2></div></div>
+        <p>Kaky uses third-party AI processing services to transcribe voice recordings, identify foods from natural-language descriptions, and estimate nutrition. The output may be incomplete, inaccurate, or based on typical portions rather than the exact product or preparation you consumed.</p>
+        <ul>
+          <li>Review food names, servings, calories, and nutrients before saving.</li>
+          <li>Correct results when the interpretation does not match your meal.</li>
+          <li>Be specific about brand, preparation, portion, and any calorie amount you already know.</li>
+          <li>Do not rely on an estimate as an exact laboratory measurement.</li>
+        </ul>
+        <p>When you state an explicit calorie total, Kaky is designed to preserve it as your supplied value. You remain responsible for deciding what information to log and for verifying information that matters to your health.</p>
+      </section>
+
+      <section class="policy-section reveal" id="medical">
+        <div class="section-head"><span class="section-number">05</span><div><p class="section-kicker">An important boundary</p><h2>Not medical or nutritional advice</h2></div></div>
+        <p>Kaky is a general wellness and tracking tool—not a medical device, healthcare provider, dietitian, or substitute for professional advice, diagnosis, or treatment.</p>
+        <div class="callout"><p><strong>Speak with a qualified healthcare professional</strong> before making significant dietary decisions, especially if you are pregnant, have an eating disorder or medical condition, take medication, or need clinically precise nutrition management.</p></div>
+        <p>Do not disregard professional advice or delay seeking care because of information shown by Kaky.</p>
+      </section>
+
+      <section class="policy-section reveal" id="accounts">
+        <div class="section-head"><span class="section-number">06</span><div><p class="section-kicker">Guest or protected account</p><h2>Your account</h2></div></div>
+        <p>You may use supported Kaky features as a guest. Guest information is primarily stored on the device and may be lost when Kaky is deleted, the device is erased, or local data is otherwise removed.</p>
+        <p>Signing in can protect supported data with cloud sync and associate Kaky Pro access with the correct Kaky identity. You agree to provide accurate information, protect access to your Apple or Google sign-in account, and notify us if you suspect unauthorized access.</p>
+        <p>You may request account deletion through Settings. Deleting a Kaky account does not automatically cancel a subscription billed by Apple.</p>
+      </section>
+
+      <section class="policy-section reveal" id="subscriptions">
+        <div class="section-head"><span class="section-number">07</span><div><p class="section-kicker">Your Kaky Pro purchase</p><h2>Subscriptions, trials, and renewal</h2></div></div>
+        <div class="terms-grid" aria-label="Subscription essentials">
+          <article class="term-card"><span>Price</span><strong>Apple shows the localized amount before you confirm.</strong></article>
+          <article class="term-card"><span>Trial</span><strong>Eligibility and the trial period are controlled by Apple.</strong></article>
+          <article class="term-card"><span>Renewal</span><strong>Subscriptions renew unless canceled through Apple.</strong></article>
+        </div>
+        <p>Kaky Pro is an auto-renewable subscription purchased through your Apple App Store account. Available plans, billing periods, localized prices, included features, and any introductory trial are shown on Kaky’s purchase screen and Apple’s confirmation sheet before you authorize payment.</p>
+        <ul>
+          <li>If Apple confirms that you are eligible for a free trial, you are not charged during the stated trial period. Unless canceled before the trial ends under Apple’s rules, it converts to the selected paid subscription.</li>
+          <li>Paid subscriptions automatically renew unless canceled before the end of the current billing period. Apple charges your App Store account.</li>
+          <li>Manage or cancel through your Apple account’s subscription settings. Removing Kaky or deleting your Kaky account does not cancel billing.</li>
+          <li>Introductory-offer eligibility is determined by Apple and is generally limited to one offer per subscription group.</li>
+          <li>Refund requests and App Store billing disputes are handled by Apple under Apple’s policies.</li>
+        </ul>
+        <p>Use “Restore purchase” in Kaky to restore eligible access. Subscription access may be associated with a Kaky account and App Store receipt to prevent duplicate use, fraud, and unauthorized transfers. Cancellation stops future renewal; access ordinarily continues until the expiration Apple reports.</p>
+      </section>
+
+      <section class="policy-section reveal" id="conduct">
+        <div class="section-head"><span class="section-number">08</span><div><p class="section-kicker">Keep the service healthy</p><h2>Acceptable use</h2></div></div>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use Kaky for an illegal purpose or in violation of applicable law.</li>
+          <li>Attempt to gain unauthorized access to Kaky, other accounts, or service infrastructure.</li>
+          <li>Bypass subscription verification, free-use limits, security measures, or usage controls.</li>
+          <li>Probe, scrape, overload, automate against, or interfere with Kaky’s APIs without permission.</li>
+          <li>Submit malicious content or use Kaky to harm, harass, deceive, or infringe the rights of others.</li>
+          <li>Resell, sublicense, or commercially exploit Kaky or its outputs without written permission.</li>
+        </ul>
+        <p>We may limit or suspend access reasonably necessary to investigate abuse, protect users, secure the service, or enforce these Terms.</p>
+      </section>
+
+      <section class="policy-section reveal" id="ownership">
+        <div class="section-head"><span class="section-number">09</span><div><p class="section-kicker">What belongs to whom</p><h2>Ownership and your content</h2></div></div>
+        <p>Kaky’s design, software, branding, content, and related intellectual property are owned by Mira Acaya or their respective licensors and are protected by applicable laws.</p>
+        <p>Your meal descriptions and tracking information remain yours. You grant Kaky a limited permission to host, process, transmit, and display that information only as reasonably necessary to provide, secure, and improve the service you request, consistent with the Privacy Policy.</p>
+        <p>Feedback and product suggestions may be used to improve Kaky without an obligation to compensate you.</p>
+      </section>
+
+      <section class="policy-section reveal" id="providers">
+        <div class="section-head"><span class="section-number">10</span><div><p class="section-kicker">Services Kaky relies on</p><h2>Third-party providers</h2></div></div>
+        <p>Kaky relies on providers including Supabase for authentication and cloud infrastructure, OpenRouter and selected AI providers for transcription and nutrition analysis, RevenueCat for entitlement management, and Apple and Google for distribution, billing, permissions, or sign-in.</p>
+        <p>Availability, processing, and transactions may be affected by those providers and are also subject to their applicable terms. Details about data handling are provided in our <a href="/privacy.html">Privacy Policy</a>.</p>
+      </section>
+
+      <section class="policy-section reveal" id="termination">
+        <div class="section-head"><span class="section-number">11</span><div><p class="section-kicker">Ending access</p><h2>Termination</h2></div></div>
+        <p>You may stop using Kaky at any time and may request deletion of your account. Apple subscriptions must be canceled separately through Apple.</p>
+        <p>We may suspend or terminate access when reasonably necessary to enforce these Terms, comply with law, protect Kaky or other people, or address security and abuse. Provisions that by their nature should survive—including ownership, disclaimers, limitations, and dispute terms—remain effective after termination.</p>
+      </section>
+
+      <section class="policy-section reveal" id="disclaimers">
+        <div class="section-head"><span class="section-number">12</span><div><p class="section-kicker">Limits of the service</p><h2>Disclaimers and liability</h2></div></div>
+        <p>To the fullest extent permitted by law, Kaky and its services are provided “as is” and “as available,” without warranties of uninterrupted availability, error-free operation, nutrition accuracy, fitness for a particular purpose, merchantability, or non-infringement.</p>
+        <p>To the fullest extent permitted by law, Mira Acaya will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages—including lost data, profits, goodwill, or health outcomes—arising from Kaky or your inability to use it.</p>
+        <p>Where liability cannot be excluded, total liability for claims relating to Kaky will not exceed the greater of the amount you paid for Kaky during the preceding twelve months or USD $50. Some jurisdictions do not allow certain exclusions, so these limitations apply only to the extent permitted.</p>
+      </section>
+
+      <section class="policy-section reveal" id="changes">
+        <div class="section-head"><span class="section-number">13</span><div><p class="section-kicker">Updates and applicable law</p><h2>Changes, governing law, and severability</h2></div></div>
+        <p>We may update these Terms as Kaky changes. We will update the effective date and provide additional notice when a change is material. Your continued use after the effective date constitutes acceptance of the updated Terms, except where law requires another form of consent.</p>
+        <p>These Terms are governed by the laws applicable in Mississippi, United States, without regard to conflict-of-law principles, except where your local consumer law requires otherwise. If a provision is unenforceable, the remaining provisions remain in effect.</p>
+      </section>
+
+      <section class="policy-section contact-card reveal" id="contact">
+        <div class="section-head"><span class="section-number">14</span><div><p class="section-kicker">Questions are welcome</p><h2>Contact</h2></div></div>
+        <p>Questions about these Terms can be sent to <a href="mailto:hello@kaky.org">hello@kaky.org</a>.</p>
+        <p>Mira Acaya · Developer of Kaky · Hattiesburg, Mississippi, United States</p>
+      </section>
+
+      <footer>
+        <p>© 2026 Kaky. All rights reserved.</p>
+        <p><a href="/privacy.html">Privacy Policy</a> · <a href="/">Back to kaky.org</a></p>
+      </footer>
+    </main>
   </div>
 
-  <div class="section" id="medical">
-    <div class="section-header"><span class="section-num">04</span><h2>Not medical or nutritional advice</h2></div>
-    <div class="callout warn">
-      <p><strong>Important:</strong> Kaky is a tracking tool, not a medical device. The information it provides is for general informational purposes only and is not intended as a substitute for professional medical, dietary, or nutritional advice, diagnosis, or treatment.</p>
-    </div>
-    <p>Always consult a qualified healthcare provider before making decisions about your diet, especially if you have a medical condition (such as diabetes, eating disorders, kidney disease, or pregnancy) or are taking medication.</p>
-    <p>Do not rely solely on Kaky to manage a medical condition. We are not liable for any health outcome resulting from use of the app.</p>
-  </div>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const sections = [...document.querySelectorAll('.policy-section[id]')];
+      const links = [...document.querySelectorAll('.chapter-nav a')];
+      const revealItems = [...document.querySelectorAll('.reveal')];
+      const orbOne = document.querySelector('.orb-one');
+      const orbTwo = document.querySelector('.orb-two');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let ticking = false;
 
-  <div class="section" id="account">
-    <div class="section-header"><span class="section-num">05</span><h2>Your account</h2></div>
-    <p>You may use Kaky without an account, but signing in unlocks cloud sync. When you sign in (via Apple or Google), you agree that the information you provide is accurate. You are responsible for keeping your sign-in credentials secure.</p>
-    <p>You may delete your account and all associated data at any time from Settings → "Delete account." Deletion is immediate and irreversible.</p>
-  </div>
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -7% 0px' });
 
-  <div class="section" id="use">
-    <div class="section-header"><span class="section-num">06</span><h2>Acceptable use</h2></div>
-    <p>When using Kaky, you agree not to:</p>
-    <ul>
-      <li>Use the app for any illegal purpose or in violation of any applicable law</li>
-      <li>Attempt to reverse-engineer, decompile, or extract source code from the app</li>
-      <li>Attempt to gain unauthorized access to our systems or to other users' data</li>
-      <li>Submit prompts designed to manipulate the AI into producing harmful, offensive, or misleading content</li>
-      <li>Use automated tools to scrape, copy, or interact with the app's APIs without permission</li>
-      <li>Resell, sublicense, or commercially exploit the app or its outputs</li>
-    </ul>
-    <p>We reserve the right to suspend or terminate accounts that violate these rules.</p>
-  </div>
+      revealItems.forEach((item) => revealObserver.observe(item));
 
-  <div class="section" id="ip">
-    <div class="section-header"><span class="section-num">07</span><h2>Ownership and license</h2></div>
-    <p>Kaky, including its design, code, logo, and content, is owned by Mira Acaya and is protected by copyright and trademark laws. We grant you a limited, non-exclusive, non-transferable, revocable license to use the app for personal, non-commercial purposes.</p>
-    <p>Your meal log data belongs to you. By using the app, you grant us a limited license to store and process this data only to provide the service to you (sync, analysis, display).</p>
-  </div>
+      const updateReadingState = () => {
+        const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const ratio = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
+        root.style.setProperty('--reading-progress', ratio.toFixed(4));
 
-  <div class="section" id="third">
-    <div class="section-header"><span class="section-num">08</span><h2>Third-party services</h2></div>
-    <p>Kaky relies on third-party services to function, including:</p>
-    <ul>
-      <li><strong>Supabase</strong> — authentication and cloud sync</li>
-      <li><strong>OpenRouter</strong> — AI request routing</li>
-      <li><strong>Google (Gemini)</strong> — AI nutrition analysis</li>
-      <li><strong>Apple App Store / Apple Sign-In</strong> — distribution and authentication</li>
-      <li><strong>Google Sign-In</strong> — authentication</li>
-    </ul>
-    <p>Each of these providers has its own terms of service. Your use of Kaky is also subject to those terms when applicable. See our <a href="/privacy.html">Privacy Policy</a> for links.</p>
-  </div>
+        let current = sections[0]?.id;
+        const marker = window.scrollY + Math.min(window.innerHeight * 0.34, 280);
+        sections.forEach((section) => {
+          if (section.offsetTop <= marker) current = section.id;
+        });
+        links.forEach((link) => {
+          const active = link.getAttribute('href') === `#${current}`;
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
 
-  <div class="section" id="termination">
-    <div class="section-header"><span class="section-num">09</span><h2>Termination</h2></div>
-    <p>You may stop using Kaky at any time by uninstalling the app and deleting your account. We may terminate or suspend your access to the service at our discretion, with or without notice, if you violate these Terms or for any other lawful reason.</p>
-    <p>Sections that by their nature should survive termination (Ownership, Disclaimers, Limitation of Liability, Governing Law) will continue to apply after termination.</p>
-  </div>
+        if (!reduceMotion) {
+          orbOne.style.transform = `translate3d(0, ${ratio * 170}px, 0)`;
+          orbTwo.style.transform = `translate3d(0, ${ratio * -130}px, 0)`;
+        }
+        ticking = false;
+      };
 
-  <div class="section" id="disclaimer">
-    <div class="section-header"><span class="section-num">10</span><h2>Disclaimer of warranties</h2></div>
-    <p>Kaky is provided "as is" and "as available," without warranties of any kind, express or implied. To the maximum extent permitted by law, we disclaim all warranties, including merchantability, fitness for a particular purpose, accuracy, and non-infringement.</p>
-    <p>We do not warrant that the app will be uninterrupted, error-free, secure, or that nutrition estimates will meet any particular standard of accuracy.</p>
-  </div>
+      const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateReadingState);
+      };
 
-  <div class="section" id="liability">
-    <div class="section-header"><span class="section-num">11</span><h2>Limitation of liability</h2></div>
-    <p>To the maximum extent permitted by law, in no event shall Mira Acaya be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, health outcomes, or goodwill — arising from your use of the app, even if advised of the possibility of such damages.</p>
-    <p>Our total liability for any claim arising out of or relating to these Terms or the app shall not exceed the greater of (a) the amount you have paid us in the past twelve months, or (b) USD $50.</p>
-  </div>
-
-  <div class="section" id="changes">
-    <div class="section-header"><span class="section-num">12</span><h2>Changes to these terms</h2></div>
-    <p>We may update these Terms from time to time. When we make material changes, we will notify you through the app or by updating the "Last updated" date at the top of this page. Continued use of the app after changes take effect constitutes acceptance of the new Terms.</p>
-  </div>
-
-  <div class="section" id="law">
-    <div class="section-header"><span class="section-num">13</span><h2>Governing law and disputes</h2></div>
-    <p>These Terms are governed by the laws of the jurisdiction in which the developer resides, without regard to its conflict of laws principles. You agree that any dispute arising from these Terms or your use of the app will be resolved in the courts of that jurisdiction, except where prohibited by applicable consumer protection laws.</p>
-    <p>If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect.</p>
-  </div>
-
-  <div class="contact-card" id="contact">
-    <h2>Contact us</h2>
-    <p>Questions about these Terms:</p>
-    <p><a href="mailto:hello@kaky.org">hello@kaky.org</a></p>
-    <p style="margin-top:12px;font-size:12px;color:var(--mid);">Mira Acaya · Developer of Kaky</p>
-  </div>
-
-  <footer>
-    <p>© 2026 Kaky. All rights reserved.</p>
-    <p><a href="/">← Back to kaky.org</a></p>
-  </footer>
-</div>
+      addEventListener('scroll', requestUpdate, { passive: true });
+      addEventListener('resize', requestUpdate);
+      updateReadingState();
+    })();
+  </script>
 </body>
 </html>
