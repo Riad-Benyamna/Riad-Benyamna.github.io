@@ -95,11 +95,13 @@
     .hero-deck:hover .deck-card:nth-child(1){transform:translateX(-50%) translateY(-8px) rotate(0)}
     .hero-deck:hover .deck-card:nth-child(2){transform:translate(12px,-2px) rotate(10deg)}
     .hero-deck:hover .deck-card:nth-child(3){transform:translate(-12px,4px) rotate(-11deg)}
-    .voice-pill{position:absolute;z-index:5;left:8px;bottom:62px;display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.54);border-radius:18px;background:rgba(23,19,17,.91);color:#fff;box-shadow:0 18px 40px rgba(23,18,16,.28);backdrop-filter:blur(14px)}
-    .voice-dot{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--orange);box-shadow:0 0 0 7px rgba(255,107,56,.14)}
-    .voice-dot::before{content:'';width:7px;height:14px;border:2px solid #fff;border-radius:6px}
-    .voice-pill strong{display:block;font-size:13px}
-    .voice-pill span{display:block;margin-top:2px;font-size:11px;color:rgba(255,255,255,.6)}
+    .voice-pill{position:absolute;z-index:5;left:8px;bottom:62px;width:min(320px,calc(100% - 16px));display:flex;align-items:center;gap:14px;padding:14px 17px 14px 14px;border:1px solid rgba(255,255,255,.35);border-radius:21px;background:rgba(23,19,17,.94);color:#fff;box-shadow:0 20px 48px rgba(23,18,16,.32);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .voice-icon{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#ff8054,var(--orange));box-shadow:0 10px 24px rgba(255,107,56,.3)}
+    .voice-icon svg{width:23px;height:23px;overflow:visible}
+    .voice-pill-copy{min-width:0}
+    .voice-kicker{display:block;margin-bottom:3px;font-size:9px;font-weight:700;letter-spacing:.13em;line-height:1.2;text-transform:uppercase;color:#ff9a76}
+    .voice-pill strong{display:block;font-size:15px;line-height:1.2;letter-spacing:-.02em}
+    .voice-pill p{margin-top:4px;font-size:11px;line-height:1.35;color:rgba(255,255,255,.64)}
 
     .promise-bar{position:relative;z-index:3;border-block:1px solid var(--line);background:rgba(255,250,245,.55);overflow:hidden}
     .promise-track{width:max-content;display:flex;align-items:center;gap:26px;padding:18px 0;animation:marquee 30s linear infinite}
@@ -298,7 +300,19 @@
           <figure class="deck-card"><img src="kaky-01-hero.png" alt="Kaky daily calorie and macro dashboard"></figure>
           <figure class="deck-card"><img src="kaky-03-results.png" alt="Kaky nutrition analysis after a meal"></figure>
           <figure class="deck-card"><img src="kaky-02-voice.png" alt="Kaky voice logging experience"></figure>
-          <div class="voice-pill" aria-hidden="true"><span class="voice-dot"></span><div><strong>Speak naturally</strong><span>Kaky handles the structure</span></div></div>
+          <aside class="voice-pill" aria-label="Kaky voice food logging">
+            <span class="voice-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="2.5" width="8" height="13" rx="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M5.5 11.5v.5a6.5 6.5 0 0 0 13 0v-.5M12 18.5v3M8.5 21.5h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="voice-pill-copy">
+              <span class="voice-kicker">Voice food logging</span>
+              <strong>Say what you ate</strong>
+              <p>Kaky turns it into calories and macros.</p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
