@@ -1,648 +1,324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delete Account — Kaky</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe9">
+  <meta name="description" content="How to permanently delete your Kaky account and associated nutrition data.">
+  <title>Delete Your Account — Kaky</title>
 
-  :root {
-    --orange: #FF6B35;
-    --orange-dim: rgba(255, 107, 53, 0.12);
-    --orange-border: rgba(255, 107, 53, 0.3);
-    --black: #0F0F0F;
-    --card: #161616;
-    --elevated: #1E1E1E;
-    --text: #F0EDE8;
-    --text-secondary: #9A9490;
-    --text-tertiary: #4A4744;
-    --border: rgba(255,255,255,0.07);
-    --red: #E05252;
-    --red-dim: rgba(224, 82, 82, 0.1);
-    --red-border: rgba(224, 82, 82, 0.3);
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 
-  html { scroll-behavior: smooth; }
+  <script>document.documentElement.classList.add('js');</script>
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--black);
-    color: var(--text);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-  }
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    *{margin:0}
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 50;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    background: rgba(15,15,15,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
+    :root{
+      --paper:#f4efe9;
+      --paper-2:#ebe3da;
+      --cream:#fffaf5;
+      --ink:#171210;
+      --muted:#746a63;
+      --line:rgba(23,18,16,.12);
+      --orange:#ff6b38;
+      --orange-deep:#d94d1e;
+      --red:#c63c36;
+      --dark:#171311;
+      --white:#fffdfa;
+      --max:1080px;
+      --shadow:0 28px 90px rgba(43,27,18,.14);
+    }
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
+    html{scroll-behavior:smooth;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{min-width:320px;overflow-x:clip;background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6}
+    a{color:inherit}
+    ::selection{background:rgba(255,107,56,.24)}
 
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-    background: var(--orange);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    .reading-progress{position:fixed;inset:0 0 auto;z-index:200;height:3px;pointer-events:none}
+    .reading-progress span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--orange),#ff9a64)}
 
-  .logo-mark svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
-  }
+    .grain{position:fixed;inset:0;z-index:150;pointer-events:none;opacity:.024;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
 
-  .logo-wordmark {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.5px;
-  }
+    nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1040px);height:62px;padding:8px 10px 8px 16px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.55);border-radius:18px;background:rgba(255,250,245,.76);box-shadow:0 8px 36px rgba(46,30,20,.08);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);transform:translateX(-50%)}
+    .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:18px;font-weight:700;letter-spacing:-.04em}
+    .brand-mark{width:37px;height:37px;display:grid;place-items:center;border-radius:11px;background:var(--orange);box-shadow:0 8px 18px rgba(217,77,30,.22);color:white;font-family:'Instrument Serif',serif;font-size:24px;font-style:italic}
+    .nav-links{display:flex;align-items:center;gap:26px;padding:0;list-style:none}
+    .nav-links a{text-decoration:none;font-size:12px;font-weight:700;color:var(--muted)}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-links .home-link{padding:11px 15px;border-radius:11px;background:var(--ink);color:white}
 
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
+    .hero{position:relative;min-height:92svh;padding:144px 24px 96px;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+    .hero::before{content:'';position:absolute;z-index:-2;width:620px;height:620px;right:-270px;top:-240px;border-radius:50%;background:rgba(255,107,56,.14)}
+    .hero::after{content:'';position:absolute;z-index:-2;width:430px;height:430px;left:-260px;bottom:-110px;border-radius:50%;background:rgba(198,60,54,.06)}
+    .hero-inner{width:min(100%,var(--max));display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:78px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange-deep)}
+    .eyebrow::before{content:'';width:30px;height:1px;background:currentColor}
+    h1{font-size:clamp(54px,7.5vw,92px);font-weight:600;line-height:.92;letter-spacing:-.068em}
+    h1 em{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange);letter-spacing:-.035em}
+    .hero-copy{max-width:590px;margin-top:26px;font-size:18px;line-height:1.65;color:var(--muted)}
+    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
+    .button:hover{transform:translateY(-2px)}
+    .button-primary{background:var(--ink);color:white;box-shadow:0 14px 30px rgba(23,18,16,.18)}
+    .button-secondary{border:1px solid var(--line);background:rgba(255,250,245,.6);color:var(--ink)}
 
-  .nav-links a {
-    font-size: 14px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+    .truth-card{position:relative;padding:34px;border:1px solid rgba(255,255,255,.1);border-radius:30px;background:var(--dark);box-shadow:var(--shadow);color:var(--white);overflow:hidden}
+    .truth-card::before{content:'';position:absolute;width:260px;height:260px;right:-130px;top:-140px;border-radius:50%;background:rgba(255,107,56,.2)}
+    .truth-label{position:relative;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff936b}
+    .truth-card h2{position:relative;max-width:340px;margin-top:16px;font-size:32px;line-height:1.04;letter-spacing:-.045em}
+    .truth-card>p{position:relative;margin-top:14px;font-size:14px;line-height:1.65;color:rgba(255,255,255,.58)}
+    .truth-rows{position:relative;display:grid;gap:12px;margin-top:28px}
+    .truth-row{display:grid;grid-template-columns:12px 1fr;gap:12px;align-items:start;padding:14px 15px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.045);font-size:12px;color:rgba(255,255,255,.75)}
+    .truth-dot{width:8px;height:8px;margin-top:5px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(255,107,56,.1)}
 
-  .nav-links a:hover { color: var(--text); }
+    .section{padding:120px 24px}
+    .wrap{width:min(100%,var(--max));margin:0 auto}
+    .section-label{margin-bottom:16px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange-deep)}
+    .display{font-size:clamp(43px,5.8vw,72px);font-weight:600;line-height:.98;letter-spacing:-.06em}
+    .display em{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange);letter-spacing:-.03em}
+    .section-intro{max-width:610px;margin-top:20px;font-size:17px;line-height:1.65;color:var(--muted)}
 
-  /* MAIN */
-  main {
-    padding-top: 100px;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-bottom: 80px;
-  }
+    .steps-section{background:var(--paper-2)}
+    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:58px;counter-reset:steps}
+    .step{position:relative;min-height:265px;padding:32px;border:1px solid rgba(23,18,16,.08);border-radius:26px;background:rgba(255,250,245,.72);overflow:hidden;counter-increment:steps}
+    .step::after{content:counter(steps,decimal-leading-zero);position:absolute;right:22px;bottom:-18px;font-family:'Instrument Serif',serif;font-size:102px;font-style:italic;line-height:1;color:rgba(255,107,56,.1)}
+    .step-number{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--orange-deep)}
+    .step h3{max-width:390px;margin-top:28px;font-size:25px;line-height:1.08;letter-spacing:-.04em}
+    .step p{position:relative;z-index:1;max-width:440px;margin-top:12px;font-size:14px;line-height:1.65;color:var(--muted)}
+    .path{display:inline-flex;margin-top:17px;padding:8px 11px;border-radius:9px;background:var(--ink);color:white;font-size:11px;font-weight:700;letter-spacing:.01em}
 
-  .container {
-    width: 100%;
-    max-width: 580px;
-    padding: 0 24px;
-    padding-top: 60px;
-  }
+    .result-section{background:var(--dark);color:var(--white);overflow:hidden}
+    .result-section .section-label{color:#ff936b}
+    .result-section .section-intro{color:rgba(255,255,255,.58)}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+    .result-card{min-height:240px;padding:28px;border:1px solid rgba(255,255,255,.09);border-radius:24px;background:rgba(255,255,255,.045)}
+    .result-card .num{display:inline-grid;place-items:center;width:34px;height:34px;border:1px solid rgba(255,147,107,.34);border-radius:50%;font-size:10px;font-weight:700;color:#ff936b}
+    .result-card h3{margin-top:24px;font-size:19px;letter-spacing:-.025em}
+    .result-card p{margin-top:10px;font-size:13px;line-height:1.65;color:rgba(255,255,255,.55)}
+    .safety-note{margin-top:16px;padding:22px 24px;border:1px solid rgba(255,147,107,.28);border-radius:18px;background:rgba(255,107,56,.08);font-size:13px;line-height:1.7;color:rgba(255,255,255,.68)}
+    .safety-note strong{color:#ffad8f}
 
-  /* HEADER */
-  .page-header {
-    margin-bottom: 40px;
-  }
+    .split{display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:start}
+    .list-card{border-top:1px solid var(--line)}
+    .list-row{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .list-row .index{width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:10px;font-weight:700;color:var(--orange-deep)}
+    .list-row h3{font-size:15px;letter-spacing:-.02em}
+    .list-row p{margin-top:5px;font-size:13px;line-height:1.65;color:var(--muted)}
 
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--text-tertiary);
-    text-decoration: none;
-    margin-bottom: 28px;
-    transition: color 0.2s;
-  }
+    .apple-card{margin-top:34px;padding:28px;border:1px solid rgba(198,60,54,.18);border-radius:23px;background:rgba(198,60,54,.055)}
+    .apple-card .warning{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+    .apple-card h3{margin-top:12px;font-size:25px;line-height:1.08;letter-spacing:-.04em}
+    .apple-card p{margin-top:12px;font-size:14px;line-height:1.7;color:var(--muted)}
+    .apple-link{display:inline-flex;margin-top:18px;padding:11px 14px;border-radius:10px;background:var(--ink);color:white;text-decoration:none;font-size:12px;font-weight:700}
 
-  .back-link:hover { color: var(--text-secondary); }
+    .support{padding-top:34px}
+    .support-card{position:relative;min-height:430px;padding:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:34px;background:var(--orange);overflow:hidden;box-shadow:0 30px 90px rgba(217,77,30,.2)}
+    .support-card::before,.support-card::after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.22);border-radius:50%}
+    .support-card::before{left:-210px;top:-190px}.support-card::after{right:-190px;bottom:-220px}
+    .support-card h2{position:relative;z-index:1;max-width:720px;font-size:clamp(42px,6vw,68px);line-height:.96;letter-spacing:-.06em}
+    .support-card p{position:relative;z-index:1;max-width:610px;margin-top:18px;font-size:15px;line-height:1.65;color:rgba(23,18,16,.68)}
+    .support-card .button{position:relative;z-index:1;margin-top:25px}
+    .support-hint{position:relative;z-index:1;margin-top:14px!important;font-size:11px!important}
 
-  .back-link svg {
-    width: 14px;
-    height: 14px;
-  }
+    footer{padding:36px 24px 48px}
+    .footer-inner{width:min(100%,var(--max));margin:0 auto;padding-top:26px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--line)}
+    .footer-links{display:flex;align-items:center;gap:22px;padding:0;list-style:none}
+    .footer-links a{font-size:12px;font-weight:600;text-decoration:none;color:var(--muted)}
+    .copyright{font-size:11px;color:#948880}
 
-  .page-header h1 {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: -0.8px;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
+    .reveal{opacity:1;transform:none}
+    .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+    .js .reveal.visible{opacity:1;transform:none}
 
-  .page-header p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-weight: 300;
-  }
+    @media(max-width:860px){
+      .hero-inner,.split{grid-template-columns:1fr;gap:48px}
+      .hero{padding-top:130px}.hero-copy{max-width:680px}
+      .result-grid{grid-template-columns:1fr}.result-card{min-height:190px}
+    }
 
-  /* WHAT GETS DELETED */
-  .info-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 20px;
-  }
+    @media(max-width:640px){
+      nav{top:10px;width:calc(100% - 20px)}.nav-links li:not(:last-child){display:none}
+      .hero{padding:122px 20px 80px;min-height:auto}.hero h1{font-size:56px}.hero-copy{font-size:16px}
+      .truth-card{padding:28px 24px}.section{padding:88px 20px}.steps{grid-template-columns:1fr}.step{min-height:240px;padding:28px 24px}
+      .support{padding:26px 13px 78px}.support-card{min-height:440px;padding:48px 22px;border-radius:28px}
+      .footer-inner{flex-direction:column;align-items:flex-start}.footer-links{flex-wrap:wrap}
+    }
 
-  .info-card h2 {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 16px;
-  }
-
-  .deletion-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .deletion-items li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  .deletion-items li .icon {
-    width: 20px;
-    height: 20px;
-    background: var(--red-dim);
-    border: 1px solid var(--red-border);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .deletion-items li .icon svg {
-    width: 10px;
-    height: 10px;
-    stroke: var(--red);
-  }
-
-  /* WARNING CARD */
-  .warning-card {
-    background: var(--red-dim);
-    border: 1px solid var(--red-border);
-    border-radius: 14px;
-    padding: 18px 22px;
-    margin-bottom: 28px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  .warning-card svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--red);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .warning-card p {
-    font-size: 13.5px;
-    color: #e89090;
-    line-height: 1.6;
-  }
-
-  .warning-card strong {
-    color: #f0a0a0;
-    font-weight: 500;
-  }
-
-  /* FORM */
-  .form-section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px;
-    margin-bottom: 16px;
-  }
-
-  .form-section h2 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-
-  .field {
-    margin-bottom: 18px;
-  }
-
-  .field:last-child { margin-bottom: 0; }
-
-  .field label {
-    display: block;
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-    font-weight: 400;
-  }
-
-  .field input,
-  .field select,
-  .field textarea {
-    width: 100%;
-    background: var(--elevated);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 14px;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
-    border-color: rgba(255,255,255,0.2);
-  }
-
-  .field input::placeholder,
-  .field textarea::placeholder {
-    color: var(--text-tertiary);
-  }
-
-  .field select option {
-    background: #1a1a1a;
-    color: var(--text);
-  }
-
-  .field textarea {
-    resize: none;
-    height: 90px;
-    line-height: 1.5;
-  }
-
-  /* CONFIRM INPUT */
-  .confirm-field {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-
-  .confirm-label-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  .confirm-label-row label {
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-
-  .confirm-label-row span {
-    font-size: 12px;
-    color: var(--text-tertiary);
-    font-family: monospace;
-    background: var(--elevated);
-    padding: 2px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-  }
-
-  /* DELETE BUTTON */
-  .delete-btn {
-    width: 100%;
-    padding: 15px;
-    background: var(--red);
-    border: none;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
-    color: white;
-    cursor: pointer;
-    transition: background 0.2s, opacity 0.2s, transform 0.1s;
-    letter-spacing: -0.2px;
-    margin-bottom: 12px;
-  }
-
-  .delete-btn:hover { background: #cc4444; }
-  .delete-btn:active { transform: scale(0.99); }
-
-  .delete-btn:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* ALTERNATIVE */
-  .alt-section {
-    background: var(--orange-dim);
-    border: 1px solid var(--orange-border);
-    border-radius: 14px;
-    padding: 22px 24px;
-    margin-bottom: 40px;
-  }
-
-  .alt-section h3 {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--orange);
-    margin-bottom: 8px;
-  }
-
-  .alt-section p {
-    font-size: 13.5px;
-    color: #d4946a;
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 14px;
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--orange);
-    text-decoration: none;
-    border: 1px solid var(--orange-border);
-    border-radius: 8px;
-    padding: 8px 14px;
-    transition: background 0.2s;
-  }
-
-  .contact-link:hover { background: var(--orange-dim); }
-
-  /* SUCCESS STATE */
-  .success-state {
-    display: none;
-    text-align: center;
-    padding: 60px 24px;
-  }
-
-  .success-state.visible { display: block; }
-
-  .success-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--red-dim);
-    border: 1px solid var(--red-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-  }
-
-  .success-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: var(--red);
-  }
-
-  .success-state h2 {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.5px;
-    margin-bottom: 10px;
-  }
-
-  .success-state p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 380px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  footer p {
-    font-size: 12px;
-    color: var(--text-tertiary);
-  }
-
-  footer .footer-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  footer .footer-links a {
-    font-size: 12px;
-    color: var(--text-tertiary);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  footer .footer-links a:hover { color: var(--text-secondary); }
-
-  @media (max-width: 600px) {
-    nav { padding: 16px 20px; }
-    .container { padding-top: 40px; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-    .nav-links { display: none; }
-  }
-</style>
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+    }
+  </style>
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 10c-2.5 0-4.7-1.3-6-3.2.5-1.6 2.1-2.8 3.8-2.8h4.4c1.7 0 3.3 1.2 3.8 2.8C16.7 15.7 14.5 17 12 17z"/>
-      </svg>
-    </div>
-    <span class="logo-wordmark">Kaky</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="privacy.html">Privacy</a></li>
-    <li><a href="terms.html">Terms</a></li>
-  </ul>
-</nav>
+  <nav aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Kaky home"><span class="brand-mark" aria-hidden="true">k</span><span>kaky.</span></a>
+    <ul class="nav-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a class="home-link" href="index.html">Back to Kaky</a></li>
+    </ul>
+  </nav>
 
-<main>
-  <div class="container">
-
-    <!-- FORM STATE -->
-    <div id="form-state">
-      <div class="page-header">
-        <a href="index.html" class="back-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 5l-7 7 7 7"/>
-          </svg>
-          Back to home
-        </a>
-        <h1>Delete your account</h1>
-        <p>We're sorry to see you go. Once deleted, your account and all associated data cannot be recovered.</p>
-      </div>
-
-      <!-- WHAT GETS DELETED -->
-      <div class="info-card">
-        <h2>What will be deleted</h2>
-        <ul class="deletion-items">
-          <li>
-            <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </span>
-            Your account profile and login credentials
-          </li>
-          <li>
-            <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </span>
-            All logged meals, calorie history, and voice recordings
-          </li>
-          <li>
-            <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </span>
-            Nutrition goals, preferences, and app settings
-          </li>
-          <li>
-            <span class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </span>
-            Any subscription or billing information on file
-          </li>
-        </ul>
-      </div>
-
-      <!-- WARNING -->
-      <div class="warning-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/>
-          <line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-        <p><strong>This action is permanent and irreversible.</strong> We cannot restore your data after deletion. Make sure you've exported anything you want to keep before proceeding.</p>
-      </div>
-
-      <!-- FORM -->
-      <div class="form-section">
-        <h2>Request account deletion</h2>
-
-        <div class="field">
-          <label>Email address on your account</label>
-          <input type="email" id="email-input" placeholder="you@example.com" autocomplete="email">
-        </div>
-
-        <div class="field">
-          <label>Reason for leaving <span style="color:var(--text-tertiary);font-size:12px">(optional)</span></label>
-          <select id="reason-select">
-            <option value="" disabled selected>Select a reason</option>
-            <option value="not-using">Not using the app anymore</option>
-            <option value="missing-features">Missing features I need</option>
-            <option value="privacy">Privacy concerns</option>
-            <option value="switching">Switching to a different app</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Additional feedback <span style="color:var(--text-tertiary);font-size:12px">(optional)</span></label>
-          <textarea id="feedback-input" placeholder="Help us improve Kaky for others..."></textarea>
-        </div>
-
-        <div class="confirm-field">
-          <div class="confirm-label-row">
-            <label>Type to confirm</label>
-            <span>DELETE MY ACCOUNT</span>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Account and data deletion</div>
+          <h1>Delete your account.<em>For real.</em></h1>
+          <p class="hero-copy">Kaky’s deletion control lives inside the app so only the signed-in account owner can authorize it. There is no pretend web form and no password sent by email.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#steps">See the steps</a>
+            <a class="button button-secondary" href="mailto:hello@kaky.org?subject=Kaky%20account%20deletion%20help">I cannot access the app</a>
           </div>
-          <input type="text" id="confirm-input" placeholder="DELETE MY ACCOUNT" autocomplete="off" oninput="checkConfirm()">
+        </div>
+
+        <aside class="truth-card reveal" aria-label="Deletion summary">
+          <div class="truth-label">Authenticated deletion</div>
+          <h2>Your request is verified before anything is removed.</h2>
+          <p>Kaky sends the deletion request using your active account session. If the server cannot confirm deletion, the app keeps your local data and tells you to retry.</p>
+          <div class="truth-rows">
+            <div class="truth-row"><span class="truth-dot"></span><span>No public form can delete someone else’s account.</span></div>
+            <div class="truth-row"><span class="truth-dot"></span><span>Cloud data is removed before the device is cleared.</span></div>
+            <div class="truth-row"><span class="truth-dot"></span><span>Apple subscriptions are handled separately by Apple.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section steps-section" id="steps">
+      <div class="wrap">
+        <header class="reveal">
+          <div class="section-label">Delete from your iPhone</div>
+          <h2 class="display">Four clear steps.<em>No waiting screen.</em></h2>
+          <p class="section-intro">Use the same Apple or Google sign-in connected to your Kaky account, then delete directly from Settings.</p>
+        </header>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-number">STEP 01</div>
+            <h3>Open Kaky and go to Settings.</h3>
+            <p>From the Home or Insights screen, tap the settings control in the top area.</p>
+            <span class="path">Kaky → Settings</span>
+          </article>
+          <article class="step reveal">
+            <div class="step-number">STEP 02</div>
+            <h3>Scroll to your account controls.</h3>
+            <p>Signed-in members will see an Account section. Guest accounts will see a Data section.</p>
+            <span class="path">Account or Data</span>
+          </article>
+          <article class="step reveal">
+            <div class="step-number">STEP 03</div>
+            <h3>Choose the red deletion action.</h3>
+            <p>Tap “Delete Account.” For an anonymous guest account, tap “Delete Kaky data.”</p>
+            <span class="path">Delete Account</span>
+          </article>
+          <article class="step reveal">
+            <div class="step-number">STEP 04</div>
+            <h3>Read the warning and confirm.</h3>
+            <p>Kaky sends an authenticated deletion request. After the server confirms it, the app clears local Kaky data and signs you out.</p>
+            <span class="path">Confirm deletion</span>
+          </article>
         </div>
       </div>
+    </section>
 
-      <button class="delete-btn" id="delete-btn" disabled onclick="submitDeletion()">
-        Permanently delete my account
-      </button>
+    <section class="section result-section">
+      <div class="wrap">
+        <header class="reveal">
+          <div class="section-label">What happens after confirmation</div>
+          <h2 class="display">Server first.<em>Then your device.</em></h2>
+          <p class="section-intro">Kaky does not show a success state until its account-deletion service confirms that the account was removed.</p>
+        </header>
 
-      <!-- ALTERNATIVE -->
-      <div class="alt-section">
-        <h3>Need help instead?</h3>
-        <p>If you're having trouble with the app or have a concern we can address, we'd love to hear from you before you go.</p>
-        <a href="mailto:support@kaky.org" class="contact-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          Contact support
-        </a>
+        <div class="result-grid">
+          <article class="result-card reveal"><span class="num">01</span><h3>Your identity is verified</h3><p>The request uses the active Supabase account session. A public email address alone cannot authorize deletion.</p></article>
+          <article class="result-card reveal"><span class="num">02</span><h3>Your Kaky account is removed</h3><p>Deleting the authenticated user triggers removal of associated Kaky profile and tracking records under Kaky’s control.</p></article>
+          <article class="result-card reveal"><span class="num">03</span><h3>Local Kaky data is cleared</h3><p>Only after server success does the app clear its local cache, reset account state, and sign out on that device.</p></article>
+        </div>
+        <div class="safety-note reveal"><strong>If deletion fails:</strong> Kaky does not pretend the account is gone. Your local data remains available, an error is shown, and you can retry or contact support.</div>
       </div>
-    </div>
+    </section>
 
-    <!-- SUCCESS STATE -->
-    <div class="success-state" id="success-state">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
+    <section class="section">
+      <div class="wrap split">
+        <header class="reveal">
+          <div class="section-label">Scope of deletion</div>
+          <h2 class="display">What goes.<em>What stays separate.</em></h2>
+          <p class="section-intro">Account deletion removes Kaky data under our control. Some billing and security records follow separate rules.</p>
+          <div class="apple-card">
+            <div class="warning">Important for Kaky Pro</div>
+            <h3>Deleting Kaky does not cancel Apple billing.</h3>
+            <p>Apple controls App Store subscriptions. Cancel Kaky Pro separately if you do not want it to renew.</p>
+            <a class="apple-link" href="https://apps.apple.com/account/subscriptions">Manage Apple subscriptions</a>
+          </div>
+        </header>
+
+        <div class="list-card reveal">
+          <div class="list-row"><span class="index">01</span><div><h3>Account profile and sign-in</h3><p>Your Kaky authentication account and cloud profile are removed.</p></div></div>
+          <div class="list-row"><span class="index">02</span><div><h3>Nutrition and progress records</h3><p>Associated meal logs, goals, weight check-ins, hydration records, and account settings are removed.</p></div></div>
+          <div class="list-row"><span class="index">03</span><div><h3>Local app data</h3><p>Kaky clears its local account cache and saved tracking data on the device after server confirmation.</p></div></div>
+          <div class="list-row"><span class="index">04</span><div><h3>Limited retained records</h3><p>Apple transactions, provider records, short-lived security data, limited backups, or records legally required to be retained may remain as described in the Privacy Policy.</p></div></div>
+        </div>
       </div>
-      <h2>Deletion request received</h2>
-      <p>We've received your request and will delete your account and all associated data within 30 days. You'll receive a confirmation at the email you provided.</p>
+    </section>
+
+    <section class="support">
+      <div class="support-card reveal">
+        <h2>Locked out? We will help you verify ownership.</h2>
+        <p>Email us from the address connected to your Kaky account. Include only the information needed to identify the account—never send your password, Apple ID password, payment card, or verification code.</p>
+        <a class="button button-primary" href="mailto:hello@kaky.org?subject=Kaky%20account%20deletion%20request">Email hello@kaky.org</a>
+        <p class="support-hint">Subject: Kaky account deletion request</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">k</span><span>kaky.</span></a>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="mailto:hello@kaky.org">Contact</a></li>
+      </ul>
+      <p class="copyright">© 2026 Kaky</p>
     </div>
+  </footer>
 
-  </div>
-</main>
+  <script>
+    (() => {
+      const progress = document.getElementById('readingProgress');
+      const revealItems = [...document.querySelectorAll('.reveal')];
+      const observer = new IntersectionObserver((entries, instance) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          instance.unobserve(entry.target);
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -50px' });
+      revealItems.forEach((item) => observer.observe(item));
 
-<footer>
-  <p>© 2025 Kaky. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="mailto:support@kaky.org">Contact</a>
-  </div>
-</footer>
-
-<script>
-  function checkConfirm() {
-    const val = document.getElementById('confirm-input').value;
-    const email = document.getElementById('email-input').value;
-    const btn = document.getElementById('delete-btn');
-    btn.disabled = !(val === 'DELETE MY ACCOUNT' && email.includes('@'));
-  }
-
-  document.getElementById('email-input').addEventListener('input', checkConfirm);
-
-  function submitDeletion() {
-    document.getElementById('form-state').style.display = 'none';
-    document.getElementById('success-state').classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-
+      let ticking = false;
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - innerHeight;
+        const ratio = scrollable > 0 ? Math.min(1, Math.max(0, scrollY / scrollable)) : 0;
+        progress.style.transform = `scaleX(${ratio})`;
+        ticking = false;
+      };
+      addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateProgress);
+      }, { passive: true });
+      updateProgress();
+    })();
+  </script>
 </body>
 </html>
