@@ -651,7 +651,7 @@
       <h1 id="page-title">Your data.<em>Your call.</em></h1>
       <p class="hero-deck">A clear account of what Kaky processes, why it is needed, and the controls that remain yours.</p>
       <div class="hero-meta" aria-label="Document details">
-        <span>Effective September 1, 2026</span>
+        <span>Effective October 20, 2026</span>
         <span>10 short chapters</span>
         <span>About 6 minutes</span>
       </div>
@@ -695,7 +695,7 @@
           <span class="section-number">01</span>
           <div><p class="section-kicker">Where this applies</p><h2>Scope</h2></div>
         </div>
-        <p>This Privacy Policy explains how Kaky (“Kaky,” “we,” “us,” or “the app”), developed by Mira Acaya, handles information when you use the Kaky iOS application, its account and cloud-sync services, and the kaky.org website.</p>
+        <p>This Privacy Policy explains how Kaky (“Kaky,” “we,” “us,” or “the app”), developed by Mira Acaya, handles information when you use the Kaky apps for iOS and Android, their account and cloud-sync services, and the kaky.org website.</p>
         <p>Kaky is a nutrition-tracking tool, not a medical provider or medical device. Nutrition, body-weight, and goal information may be sensitive, so we limit its use to operating, securing, and improving the features you choose to use.</p>
       </section>
 
@@ -709,13 +709,15 @@
           <article class="data-card"><span>Profile</span><strong>Your nutrition plan</strong><p>Age, sex, height, weight, activity, goal, pace, calories, and macro targets.</p></article>
           <article class="data-card"><span>Tracking</span><strong>Your daily entries</strong><p>Food, nutrients, water, weight check-ins, dates, and serving adjustments.</p></article>
           <article class="data-card"><span>Voice</span><strong>A short recording</strong><p>Audio created only after you activate the microphone to log a meal.</p></article>
-          <article class="data-card"><span>Purchase</span><strong>Pro entitlement</strong><p>Product, entitlement, expiration, renewal state, and App Store transaction data.</p></article>
+          <article class="data-card"><span>Purchase</span><strong>Pro entitlement</strong><p>Product, entitlement, expiration, renewal state, and App Store or Google Play transaction data.</p></article>
           <article class="data-card"><span>Analytics</span><strong>Feature and campaign events</strong><p>App version, operating system, onboarding state, paywall version, selected plan, and limited source or campaign labels.</p></article>
           <article class="data-card"><span>Security</span><strong>Service protection</strong><p>Installation identifier, usage events, request timing, errors, and operational logs.</p></article>
         </div>
         <p>Notification preferences—including whether reminders are enabled and the schedule you choose—are used to schedule meal reminders. Support messages contain the email address and information you choose to send us.</p>
-        <p>In the current version, Kaky does not request your contacts, photos, precise location, or Apple Health data. Kaky uses an anonymous product-analytics identifier and includes the TikTok App Events SDK to measure whether promotions lead to onboarding completion, trials, or subscriptions. On iOS, access to Apple’s advertising identifier is requested only after a separate explanation and your choice in the App Tracking Transparency prompt.</p>
-        <p>If tracking permission is denied or restricted, Kaky does not substitute an email, account identifier, hashed personal information, or device fingerprint. TikTok and Apple may still provide delayed, privacy-preserving aggregate campaign measurement through SKAdNetwork.</p>
+        <p>Kaky does not request your contacts or precise location, and it does not browse your photo library. If you allow it, Kaky uses the camera to scan food barcodes and to take a meal photo for a story. You can also choose a single photo for a story with the system photo picker and save a finished story to your photos. These photos stay on your device and leave it only when you share them. When you scan a barcode, Kaky sends only the barcode number to Open Food Facts to look up the product.</p>
+        <p>On iPhone, you can turn on Apple Health sync in Kaky’s Settings. Kaky then reads your body weight from Apple Health into your weight history, which syncs to your account when you are signed in, and saves the calories, protein, carbs, and fat of each meal you log to Apple Health. Kaky does not use Health data for advertising or analytics. You can turn sync off in Kaky or change its access in the Health app.</p>
+        <p>Kaky uses an anonymous product-analytics identifier on both platforms. On iOS only, Kaky includes the TikTok App Events SDK to measure whether promotions lead to onboarding completion, trials, or subscriptions, and requests access to Apple’s advertising identifier only after a separate explanation and your choice in the App Tracking Transparency prompt. The Android app does not include the TikTok SDK and does not use the Android advertising ID.</p>
+        <p>If tracking permission is denied or restricted on iOS, Kaky does not substitute an email, account identifier, hashed personal information, or device fingerprint. TikTok and Apple may still provide delayed, privacy-preserving aggregate campaign measurement through SKAdNetwork, which exists only on iOS.</p>
       </section>
 
       <section class="policy-section reveal" id="voice">
@@ -724,10 +726,10 @@
           <div><p class="section-kicker">What happens after you tap</p><h2>Voice and AI processing</h2></div>
         </div>
         <p>Kaky requests microphone permission only when you choose voice logging. While listening, Kaky displays a responsive waveform, detects when you finish speaking, and creates a short audio file. Leading and trailing silence are trimmed before upload.</p>
-        <div class="callout"><p><strong>Voice transcription is not performed solely on your iPhone.</strong> The trimmed recording is sent over an encrypted connection through Kaky’s Supabase function to OpenRouter and an AI transcription provider. The resulting meal text is then processed for nutrition analysis.</p></div>
+        <div class="callout"><p><strong>Voice transcription is not performed solely on your phone.</strong> The trimmed recording is sent over an encrypted connection through Kaky’s Supabase function to OpenRouter and an AI transcription provider. The resulting meal text is then processed for nutrition analysis.</p></div>
         <p>A service request may include the audio or meal text, food-logging instructions, and technical request metadata. It does not intentionally include your name or email. Kaky does not add the audio recording to your meal history or intentionally retain the recording after the transcription request is completed. Processing providers may handle request data under their own terms and privacy commitments.</p>
         <p>AI-generated nutrition is an estimate. Review the item, serving, calories, and nutrients before saving. When you provide an explicit calorie amount, Kaky treats it as your supplied value instead of replacing it with an AI estimate.</p>
-        <p>You can decline microphone permission and continue using manual text logging. Permission can be revoked at any time in iOS Settings.</p>
+        <p>You can decline microphone permission and continue using manual text logging. Permission can be revoked at any time in iOS Settings or Android Settings.</p>
       </section>
 
       <section class="policy-section reveal" id="use">
@@ -742,7 +744,7 @@
           <li>Authenticate accounts, connect purchases to the correct account, and restore Kaky Pro access.</li>
           <li>Enforce free voice allowances, prevent abuse, maintain reliability, and investigate errors.</li>
           <li>Measure anonymous product steps such as app opens, onboarding, voice-feature completion, food-analysis success or failure, paywall visits, and purchase attempts.</li>
-          <li>Measure whether limited campaign labels or TikTok promotions lead to onboarding completion, a trial, or a subscription.</li>
+          <li>Measure whether limited campaign labels or, on iOS, TikTok promotions lead to onboarding completion, a trial, or a subscription.</li>
           <li>Send reminders only after you grant notification permission and enable them.</li>
           <li>Comply with law, enforce our Terms, and protect Kaky and its users.</li>
         </ul>
@@ -758,11 +760,12 @@
         <ul>
           <li><strong>Supabase</strong> — authentication, database sync, secure server functions, and infrastructure. <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
           <li><strong>OpenRouter and selected AI providers</strong> — voice transcription and nutrition analysis. <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-          <li><strong>RevenueCat</strong> — App Store purchase validation and entitlement management. <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
+          <li><strong>RevenueCat</strong> — App Store and Google Play purchase validation and entitlement management. <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
           <li><strong>PostHog</strong> — anonymous product-funnel analytics and receipt of server-side subscription lifecycle events from RevenueCat. Session replay and person profiles are disabled. <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-          <li><strong>TikTok</strong> — App Events SDK and campaign measurement for onboarding completion, trial start, and subscription. Identifier-based cross-app measurement is subject to your iOS tracking choice; aggregate SKAdNetwork reporting may operate without that permission. Automatic payment tracking and enhanced-data matching are disabled. <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
+          <li><strong>TikTok</strong> (iOS app only) — App Events SDK and campaign measurement for onboarding completion, trial start, and subscription. Identifier-based cross-app measurement is subject to your iOS tracking choice; aggregate SKAdNetwork reporting may operate without that permission. Automatic payment tracking and enhanced-data matching are disabled. <a href="https://www.tiktok.com/legal/page/us/privacy-policy/en" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
           <li><strong>Apple</strong> — App Store distribution, payments, permissions, notifications, and Sign in with Apple. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
-          <li><strong>Google</strong> — Google Sign-In when you choose it. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
+          <li><strong>Google</strong> — Google Play distribution and payments, Android permissions and notifications, and Google Sign-In when you choose it. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
+          <li><strong>Open Food Facts</strong> — product lookup for barcodes you scan; only the barcode number is sent. <a href="https://world.openfoodfacts.org/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</a></li>
           <li><strong>GitHub Pages and Google Fonts</strong> — website hosting and typography; ordinary network information may be processed when you visit kaky.org.</li>
         </ul>
         <p>Information may also be disclosed when reasonably necessary to comply with law, protect rights and safety, investigate fraud or security incidents, or complete a business transfer. Kaky does not provide nutrition, voice, profile, email, or account data to advertisers.</p>
@@ -774,12 +777,12 @@
           <div><p class="section-kicker">Local first, cloud when chosen</p><h2>Storage, retention, and security</h2></div>
         </div>
         <h3>Guest data</h3>
-        <p>Guest profile, onboarding, meal, water, weight, and settings data are stored in Kaky’s app storage on your device. Removing the app can delete this local data. A random anti-abuse installation identifier is stored in the iOS Keychain and may remain after reinstalling; Kaky’s server receives and stores only a cryptographic representation for voice-limit enforcement.</p>
+        <p>Guest profile, onboarding, meal, water, weight, and settings data are stored in Kaky’s app storage on your device. Removing the app can delete this local data. A random anti-abuse installation identifier is stored in the iOS Keychain, where it may remain after reinstalling. On Android, it is encrypted with a key held in the Android Keystore, excluded from device backups, and removed when you uninstall the app. Kaky’s server receives and stores only a cryptographic representation for voice-limit enforcement.</p>
         <h3>Signed-in data</h3>
         <p>When you sign in, supported profile and tracking data are synced to Supabase and associated with your account identifier. Data is encrypted in transit using HTTPS/TLS, and service providers apply their own controls to stored data. No system can guarantee absolute security.</p>
         <h3>Retention</h3>
-        <p>Account and synced tracking data are retained while your account is active and as needed to provide the service. Security and voice-usage events are retained as needed to enforce allowances and investigate abuse. Product analytics and campaign events are retained according to Kaky’s configured provider settings and the providers’ policies. Apple, RevenueCat, and Kaky may retain purchase records for entitlement, fraud prevention, accounting, and legal obligations.</p>
-        <p>Deleting your Kaky account removes account data under our control, subject to limited backups, security records, transaction records, and legally required retention. Account deletion does not cancel an Apple subscription.</p>
+        <p>Account and synced tracking data are retained while your account is active and as needed to provide the service. Security and voice-usage events are retained as needed to enforce allowances and investigate abuse. Product analytics and campaign events are retained according to Kaky’s configured provider settings and the providers’ policies. Apple, Google, RevenueCat, and Kaky may retain purchase records for entitlement, fraud prevention, accounting, and legal obligations.</p>
+        <p>Deleting your Kaky account removes account data under our control, subject to limited backups, security records, transaction records, and legally required retention. Account deletion does not cancel an App Store or Google Play subscription.</p>
       </section>
 
       <section class="policy-section reveal" id="choices">
@@ -789,13 +792,13 @@
         </div>
         <ul>
           <li><strong>Guest mode:</strong> keep supported tracking data local without creating a cloud account.</li>
-          <li><strong>Microphone:</strong> allow or revoke access in iOS Settings; manual entry remains available.</li>
-          <li><strong>Notifications:</strong> allow or deny Apple’s permission dialog, change reminder preferences, or disable Kaky notifications.</li>
-          <li><strong>Tracking:</strong> choose “Ask App Not to Track” or “Allow” in Apple’s prompt, and change the choice later in iOS Settings → Privacy &amp; Security → Tracking. Denying tracking does not block Kaky.</li>
+          <li><strong>Microphone and camera:</strong> allow or revoke access in iOS Settings or Android Settings; manual entry remains available.</li>
+          <li><strong>Notifications:</strong> allow or deny the system permission prompt, change reminder preferences, or disable Kaky notifications in iOS Settings or Android Settings.</li>
+          <li><strong>Tracking (iOS only):</strong> choose “Ask App Not to Track” or “Allow” in Apple’s prompt, and change the choice later in iOS Settings → Privacy &amp; Security → Tracking. Denying tracking does not block Kaky.</li>
           <li><strong>Review and correct:</strong> edit food results, servings, profile values, water, and weight data.</li>
           <li><strong>Delete your account:</strong> use Settings → Delete account to request removal of the Kaky account and associated cloud data.</li>
           <li><strong>Access or export:</strong> contact us to request access to or a copy of personal data under our control.</li>
-          <li><strong>Subscriptions:</strong> manage or cancel Kaky Pro through Apple’s subscription settings.</li>
+          <li><strong>Subscriptions:</strong> manage or cancel Kaky Pro through Apple’s subscription settings on iOS or Google Play’s Subscriptions page on Android.</li>
         </ul>
         <p>Depending on where you live, applicable law may provide additional rights such as access, correction, deletion, portability, restriction, or objection. We may need to verify your identity before completing a request.</p>
       </section>

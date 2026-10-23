@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe9">
+  <title>Page not found · Kaky</title>
+  <script>
+    // GitHub Pages has no rewrites, so path-style invite links (/r/ANNA7K)
+    // land here. Forward them to the invite page, which reads ?c=. (Never
+    // ?code=: the app reads that as a sign-in callback.)
+    (function () {
+      var match = location.pathname.match(/^\/r\/([A-Za-z0-9]{4,16})\/?$/);
+      if (match) location.replace('/r/?c=' + match[1].toUpperCase());
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;box-sizing:border-box}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px;background:#f4efe9;color:#171210;font-family:'DM Sans',system-ui,sans-serif;text-align:center;-webkit-font-smoothing:antialiased}
+    img{width:64px;height:64px;margin:0 auto 20px;border-radius:17px;box-shadow:0 14px 28px rgba(221,79,31,.24)}
+    h1{font-size:28px;font-weight:800;letter-spacing:-.04em}
+    p{margin-top:10px;font-size:16px;line-height:1.5;color:#6b635c}
+    a{display:inline-block;margin-top:22px;padding:13px 20px;border-radius:14px;background:#c44018;color:#fff;font-weight:700;text-decoration:none}
+    a:focus-visible{outline:3px solid rgba(255,107,56,.45);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/icon.png" alt="">
+    <h1>This page isn't here</h1>
+    <p>The link may be old or mistyped.</p>
+    <a href="/">Go to kaky.org</a>
+  </main>
+</body>
+</html>

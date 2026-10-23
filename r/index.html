@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe9">
+  <meta name="description" content="A friend invited you to Kaky, the voice-first calorie tracker. Say what you ate and Kaky does the math.">
+  <meta property="og:title" content="You're invited to Kaky">
+  <meta property="og:description" content="Say what you ate and Kaky does the math. Free to download on iPhone.">
+  <meta property="og:site_name" content="Kaky">
+  <meta name="apple-itunes-app" content="app-id=6768153525">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kaky.org/r/">
+  <meta property="og:image" content="https://kaky.org/kaky-01-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>You're invited to Kaky</title>
+
+  <link rel="icon" type="image/png" href="/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    *{margin:0}
+    :root{
+      --paper:#f4efe9;
+      --paper-2:#ebe3da;
+      --card:#fffdfa;
+      --ink:#171210;
+      --muted:#6b635c;
+      --line:rgba(23,18,16,.1);
+      --orange:#ff6b38;
+      --ember:#c44018;
+      --blush:#fff1ea;
+      --blush-ink:#b33a12;
+      --shadow:0 28px 80px rgba(43,27,18,.14);
+    }
+    html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{min-height:100vh;min-height:100dvh;background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;display:flex;flex-direction:column}
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    button,a{-webkit-tap-highlight-color:transparent}
+    ::selection{background:rgba(255,107,56,.26)}
+
+    .glow{position:fixed;inset:-30vh -20vw auto;height:80vh;pointer-events:none;background:radial-gradient(closest-side,rgba(255,107,56,.18),rgba(255,107,56,0));z-index:0}
+
+    header{position:relative;z-index:1;display:flex;justify-content:center;padding:28px 16px 0}
+    .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:18px;font-weight:700;letter-spacing:-.04em}
+    .brand img{width:34px;height:34px;border-radius:10px;box-shadow:0 8px 16px rgba(221,79,31,.2)}
+    .brand b{color:var(--orange)}
+
+    main{position:relative;z-index:1;flex:1;display:flex;align-items:flex-start;justify-content:center;padding:36px 16px 48px}
+    .card{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:36px 28px 28px;text-align:center}
+    .app-icon{width:84px;height:84px;margin:0 auto 22px;border-radius:22px;box-shadow:0 18px 36px rgba(221,79,31,.28)}
+    .eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--ember);text-transform:uppercase}
+    h1{margin-top:10px;font-size:34px;line-height:1.08;font-weight:800;letter-spacing:-.045em}
+    h1 em{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;color:var(--orange);letter-spacing:-.01em}
+    .lede{margin:14px auto 0;max-width:340px;font-size:16px;line-height:1.55;color:var(--muted)}
+
+    .code{margin-top:26px;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;border-radius:20px;background:var(--blush);text-align:left}
+    .code[hidden]{display:none}
+    .code-text{flex:1;min-width:0}
+    .code-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blush-ink)}
+    .code-value{margin-top:2px;font-size:30px;font-weight:900;letter-spacing:.12em;line-height:1.15;overflow-wrap:anywhere}
+    .copy{flex:0 0 auto;height:44px;padding:0 16px;border:1px solid #e3ded7;border-radius:14px;background:#fff;color:var(--ink);font:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:transform .12s ease}
+    .copy:active{transform:scale(.97)}
+    .copy:focus-visible,.store-button:focus-visible,.open-link:focus-visible{outline:3px solid rgba(255,107,56,.45);outline-offset:3px}
+
+    .store-button{margin-top:18px;display:inline-flex;align-items:center;justify-content:center;gap:11px;width:100%;min-height:58px;padding:11px 18px;border-radius:16px;background:#050505;color:#fff;text-decoration:none;box-shadow:0 16px 30px rgba(23,18,16,.18);transition:transform .2s ease,box-shadow .2s ease}
+    .store-button:hover{transform:translateY(-2px);box-shadow:0 20px 38px rgba(23,18,16,.24)}
+    .store-button svg{width:27px;height:27px;flex:0 0 auto}
+    .store-button span{text-align:left}
+    .store-button small,.store-button strong{display:block;line-height:1.05}
+    .store-button small{font-size:10px;font-weight:500;letter-spacing:.03em}
+    .store-button strong{margin-top:3px;font-size:18px;font-weight:500;letter-spacing:-.02em}
+    .open-link{display:inline-block;margin-top:14px;padding:10px 6px;font-size:14px;font-weight:700;color:var(--ember);text-decoration:none}
+    .open-link:hover{text-decoration:underline}
+
+    ol{list-style:none;margin-top:26px;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:16px;text-align:left;counter-reset:step}
+    li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;counter-increment:step}
+    li::before{content:counter(step);width:32px;height:32px;border-radius:11px;background:#f5f3ef;color:var(--ink);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+    li strong{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+    li span{display:block;margin-top:2px;font-size:14px;line-height:1.5;color:var(--muted)}
+
+    .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:5;transform:translate(-50%,20px);opacity:0;padding:12px 18px;border-radius:999px;background:var(--ink);color:#fff;font-size:14px;font-weight:700;transition:opacity .2s ease,transform .2s ease;pointer-events:none}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    footer{position:relative;z-index:1;padding:0 16px 32px;text-align:center;font-size:13px;color:var(--muted)}
+    footer a{margin:0 8px;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media (max-width:420px){
+      .card{padding:30px 20px 22px;border-radius:26px}
+      h1{font-size:30px}
+      .code{padding-left:16px}
+      .code-value{font-size:26px}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="/" aria-label="Kaky home"><img src="/icon.png" alt=""><span>kaky<b>.</b></span></a>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="title">
+      <img class="app-icon" src="/icon.png" alt="Kaky app icon" width="84" height="84">
+      <p class="eyebrow">You're invited</p>
+      <h1 id="title">A friend saved you a seat at <em>Kaky.</em></h1>
+      <p class="lede">Say what you ate and Kaky does the math. When you log your first meal, your friend gets a free month of Kaky Pro as a thank-you.</p>
+
+      <div class="code" id="code" hidden>
+        <div class="code-text">
+          <p class="code-label" id="code-label">Your invite code</p>
+          <p class="code-value" id="code-value" aria-labelledby="code-label"></p>
+        </div>
+        <button class="copy" id="copy" type="button">Copy</button>
+      </div>
+
+      <a class="store-button" href="https://apps.apple.com/app/id6768153525" aria-label="Download Kaky on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        <span><small>Download on the</small><strong>App Store</strong></span>
+      </a>
+      <a class="open-link" id="open" href="kaky://r/" hidden>Already have Kaky? Open your invite</a>
+
+      <ol>
+        <li><div><strong>Get Kaky on your iPhone</strong><span>It's free to download and set up.</span></div></li>
+        <li><div><strong>Add the code at the end of setup</strong><span id="step-two">Tap this invite link again after installing and it fills in by itself.</span></div></li>
+        <li><div><strong>Log your first meal</strong><span>Just say it. Your friend gets a free month of Pro for inviting you.</span></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <a href="/">kaky.org</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      // Codes arrive as /r/?c=ANNA7K (the shared link, a real page with a
+      // preview), /r/ANNA7K via the static host's 404 page, or older ?code=
+      // and #code forms.
+      var pattern = /^[A-Za-z0-9]{4,16}$/;
+      var fromPath = location.pathname.replace(/\/+$/, '').split('/').pop();
+      var params = new URLSearchParams(location.search);
+      var candidates = [params.get('c'), params.get('code'), location.hash.slice(1), fromPath];
+      var code = null;
+      for (var i = 0; i < candidates.length; i++) {
+        var value = (candidates[i] || '').trim();
+        if (value.toLowerCase() !== 'r' && pattern.test(value)) {
+          code = value.toUpperCase();
+          break;
+        }
+      }
+      if (!code) return;
+
+      document.getElementById('code-value').textContent = code;
+      document.getElementById('code').hidden = false;
+      document.getElementById('step-two').textContent =
+        'Your code is ' + code + '. Tap this invite link again after installing and it fills in by itself.';
+      var open = document.getElementById('open');
+      open.href = 'kaky://r/' + code;
+      open.hidden = false;
+      document.title = 'Your Kaky invite: ' + code;
+
+      var toast = document.getElementById('toast');
+      var timer;
+      function show(message) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(timer);
+        timer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+      }
+      document.getElementById('copy').addEventListener('click', function () {
+        var done = function () { show('Code copied'); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function () { show(code); });
+        } else {
+          show(code);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

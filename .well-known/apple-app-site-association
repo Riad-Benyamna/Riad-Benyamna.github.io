@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["626V5QLYU7.com.kaky.kaky"],
+        "appID": "626V5QLYU7.com.kaky.kaky",
+        "components": [
+          { "/": "/r/*", "comment": "Invite links: https://kaky.org/r/<code>" }
+        ],
+        "paths": ["/r/*"]
+      }
+    ]
+  }
+}
